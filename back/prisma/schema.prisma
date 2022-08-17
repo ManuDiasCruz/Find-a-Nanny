@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int @id @default(autoincrement())
+  email       String @unique
+  password    String
+
+  name        String
+  age         Int
+  
+  cellphone   String
+
+  city        String
+  zipcode     Int
+
+  type        USER_TYPE
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  inactive    Boolean @default(false)
+
+  @@map("users")
+}
+
+model Nanny {
+  id               Int @id @default(autoincrement())
+  recommendation   Int @default(0)
+  yearsExperience  Int
+  
+  type             NANNY_TYPE
+
+  userId           Int
+  user             User @relation(fields: [userId], references: [id])
+
+  @@unique([userId, id])
+  @@map("nannys")
+}
+
+model Child {
+  id          Int @id @default(autoincrement())
+  age         Int
+
+  userId      Int
+  user        User @relation(fields: [userId], references: [id]) 
+
+  @@unique([userId, id])
+  @@map("childs")
+}
+
+model Comment {
+  id          Int @id @default(autoincrement())
+  text        String
+
+  senderId         Int
+  sender           User @relation(fields: [senderId], references: [id])
+  senderComment    User @relation("senderComment")
+
+  recipientId      Int
+  recipient        User @relation(fields: [recipientId], references: [id])
+  recipientComment User @relation("recipientComment")
+
+  @@unique([senderId, recipientId, id])
+  @@map("comments")
+}
+
+enum USER_TYPE {
+  PARENT
+  NANNY
+  ADMIN
+  SUPERUSER
+}
+
+enum NANNY_TYPE {
+  SITTER
+  NANNY
+}
