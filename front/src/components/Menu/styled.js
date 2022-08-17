@@ -49,7 +49,7 @@ export const MenuItems = styled.ul`
   font-family: "Lato", sans-serif;
   font-size: 17px;
   font-weight: 700px;
-  background-color: #171717;
+  background-color: #F2A29A;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: all 0.3s ease-in-out;

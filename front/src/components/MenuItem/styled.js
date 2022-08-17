@@ -12,11 +12,11 @@ export const NavItem = styled.li`
   cursor: pointer;
 
   &:hover {
-    background-color: #1f1f1f;
+    background-color: #F2A29A;
   }
 
   &:last-child:hover {
-    background-color: #1f1f1f;
+    background-color: #F2A29A;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }

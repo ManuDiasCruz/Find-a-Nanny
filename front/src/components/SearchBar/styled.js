@@ -5,13 +5,11 @@ import { AiOutlineSearch } from "react-icons/ai";
 
 export const Container = styled.div`
   left: 0;
-  max-width: 563px;
+  max-width: 400px;
   width: 100%;
   position: relative;
   z-index: 2;
   margin: ${(props) => (props.mobile ? "10px 10px" : "0")};
-  margin-left: auto;
-  margin-right: auto;
 `;
 
 export const SearchBar = styled(DebounceInput)`
@@ -19,7 +17,6 @@ export const SearchBar = styled(DebounceInput)`
   height: 45px;
   border-radius: 8px;
   padding: 0 14px;
-  padding-right: 45px;
   font-size: 19px;
   font-family: "Lato", sans-serif;
   background-color: var(--color-white);

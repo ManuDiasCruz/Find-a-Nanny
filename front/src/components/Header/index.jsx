@@ -98,15 +98,16 @@ export default function Header() {
         <h1>
           <Link
             style={{ color: "#fff", backgroundColor: "transparent" }}
-            to={"/timeline"}
+            to={"/home"}
           >
-            linkr
+            <img alt="logo" src="https://w7.pngwing.com/pngs/379/878/png-transparent-nanny-childcare-worker-child-care-infant-child-nanny-childcare-worker.png"></img>
+            <h1>Find a nanny</h1>
           </Link>
         </h1>
 
         {!isMobile && <SearchBar placeholder="Search for people" />}
 
-        <Menu src={userImage} alt="Fulaninho">
+        <Menu src={userImage} alt="Maria Luiza">
           <MenuItem onClick={handleLogout}>Logout</MenuItem>
         </Menu>
       </HeaderContainer>
@@ -142,7 +143,7 @@ const HeaderContainer = styled.header`
   left: 0;
   width: 100%;
   height: 72px;
-  background: #151515;
+  background: #F2A29A;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
@@ -157,7 +158,7 @@ const HeaderContainer = styled.header`
   & > h1 {
     font-family: var(--font-family-h1);
     font-weight: var(--font-bold);
-    font-size: var(--header-font-size);
+    font-size: 40px;
     line-height: 50px;
     letter-spacing: 0.05em;
     color: var(--color-white);
